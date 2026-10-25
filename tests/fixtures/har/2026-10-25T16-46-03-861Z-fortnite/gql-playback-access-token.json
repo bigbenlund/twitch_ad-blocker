@@ -1,0 +1,51 @@
+{
+  "url": "https://gql.twitch.tv/gql",
+  "headers": {
+    "accept": "*/*",
+    "accept-encoding": "gzip, deflate, br, zstd",
+    "accept-language": "en-US",
+    "client-id": "kimne78kx3ncx6brgo4mv6wki5h1ko",
+    "content-length": "751",
+    "content-type": "text/plain; charset=UTF-8",
+    "origin": "https://www.twitch.tv",
+    "priority": "u=1, i",
+    "referer": "https://www.twitch.tv/",
+    "sec-ch-ua": "\"Not:A-Brand\";v=\"8\", \"Chromium\";v=\"156\"",
+    "sec-ch-ua-mobile": "?0",
+    "sec-ch-ua-platform": "\"macOS\"",
+    "sec-fetch-dest": "empty",
+    "sec-fetch-mode": "cors",
+    "sec-fetch-site": "same-site",
+    "user-agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/156.0.0.0 Safari/537.36"
+  },
+  "body": {
+    "operationName": "PlaybackAccessToken_Template",
+    "query": "query PlaybackAccessToken_Template($login: String!, $isLive: Boolean!, $vodID: ID!, $isVod: Boolean!, $playerType: String!, $platform: String!) {  streamPlaybackAccessToken(channelName: $login, params: {platform: $platform, playerBackend: \"mediaplayer\", playerType: $playerType}) @include(if: $isLive) {    value    signature   authorization { isForbidden forbiddenReasonCode }   __typename  }  videoPlaybackAccessToken(id: $vodID, params: {platform: $platform, playerBackend: \"mediaplayer\", playerType: $playerType}) @include(if: $isVod) {    value    signature   __typename  }}",
+    "variables": {
+      "isLive": true,
+      "login": "fortnite",
+      "isVod": false,
+      "vodID": "",
+      "playerType": "site",
+      "platform": "web"
+    }
+  },
+  "response": {
+    "data": {
+      "streamPlaybackAccessToken": {
+        "value": "{\"adblock\":false,\"authorization\":{\"forbidden\":false,\"reason\":\"\"},\"blackout_enabled\":false,\"channel\":\"fortnite\",\"channel_id\":55125740,\"chansub\":{\"restricted_bitrates\":[],\"view_until\":1924905600},\"ci_gb\":false,\"geoblock_reason\":\"\",\"device_id\":\"REDACTED\",\"expires\":1792947964,\"extended_history_allowed\":false,\"game\":\"\",\"hide_ads\":false,\"https_required\":true,\"mature\":false,\"notification_id\":null,\"partner\":false,\"platform\":\"web\",\"player_type\":\"site\",\"private\":{\"allowed_to_view\":true},\"privileged\":false,\"role\":\"\",\"server_ads\":true,\"show_ads\":true,\"subscriber\":false,\"turbo\":false,\"user_id\":null,\"user_ip\":\"REDACTED\",\"version\":3,\"maximum_resolution\":\"FULL_HD\",\"maximum_video_bitrate_kbps\":12500,\"maximum_resolution_reasons\":{\"QUAD_HD\":[\"AUTHZ_NOT_LOGGED_IN\"],\"ULTRA_HD\":[\"AUTHZ_NOT_LOGGED_IN\"]},\"maximum_video_bitrate_kbps_reasons\":[\"AUTHZ_DISALLOWED_BITRATE\"]}",
+        "signature": "REDACTED",
+        "authorization": {
+          "isForbidden": false,
+          "forbiddenReasonCode": "NONE"
+        },
+        "__typename": "PlaybackAccessToken"
+      }
+    },
+    "extensions": {
+      "durationMilliseconds": 28,
+      "requestID": "01M5SZ8Z4EEGK775AF4ZYP9JQJ",
+      "operationName": "PlaybackAccessToken_Template"
+    }
+  }
+}

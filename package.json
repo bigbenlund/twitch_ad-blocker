@@ -1,0 +1,19 @@
+{
+  "name": "streamshield",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "Chrome MV3 extension that blocks Twitch video ads",
+  "scripts": {
+    "test": "node --test tests/",
+    "build": "node scripts/build.mjs",
+    "capture": "node scripts/capture-fixtures.mjs",
+    "e2e": "node scripts/e2e.mjs"
+  },
+  "devDependencies": {
+    "playwright": "^1.64.1"
+  },
+  "engines": {
+    "node": ">=20.11"
+  }
+}

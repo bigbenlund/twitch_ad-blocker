@@ -1,0 +1,36 @@
+:root {
+  --bg: #ffffff;
+  --fg: #18181b;
+  --muted: #6b6b75;
+  --line: #e4e4e7;
+  --accent: #6441a5;
+  --accent-fg: #ffffff;
+  color-scheme: light dark;
+}
+@media (prefers-color-scheme: dark) {
+  :root { --bg: #18181b; --fg: #efeff1; --muted: #a3a3ad; --line: #35353b; --accent: #a970ff; --accent-fg: #18181b; }
+}
+* { box-sizing: border-box; }
+body { margin: 0; width: 340px; background: var(--bg); color: var(--fg); font: 13px/1.4 system-ui, sans-serif; }
+header { display: flex; justify-content: space-between; align-items: center; padding: 12px 14px; border-bottom: 1px solid var(--line); }
+h1 { margin: 0; font-size: 15px; }
+h2 { margin: 0; font-size: 12px; text-transform: uppercase; letter-spacing: .04em; color: var(--muted); }
+h2 small { text-transform: none; letter-spacing: 0; }
+section { padding: 10px 14px; border-bottom: 1px solid var(--line); }
+.row { display: flex; justify-content: space-between; align-items: center; gap: 8px; }
+.switch { display: flex; gap: 6px; align-items: center; cursor: pointer; }
+.switch input { accent-color: var(--accent); width: 16px; height: 16px; }
+button { flex-shrink: 0; white-space: nowrap; border: 1px solid var(--accent); background: var(--accent); color: var(--accent-fg); border-radius: 4px; padding: 3px 8px; font: inherit; cursor: pointer; }
+button.secondary { background: transparent; color: var(--accent); }
+#channel-name { min-width: 0; font-weight: 600; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.stats { display: grid; grid-template-columns: repeat(3, 1fr); margin: 10px 0 4px; gap: 6px; }
+.stats div { text-align: center; }
+.stats dt { font-size: 11px; color: var(--muted); }
+.stats dd { margin: 0; font-size: 18px; font-weight: 600; font-variant-numeric: tabular-nums; }
+.hint { margin: 4px 0 0; font-size: 11px; color: var(--muted); }
+ul, ol { margin: 6px 0 0; padding: 0; list-style: none; }
+#allowlist li { display: flex; justify-content: space-between; align-items: center; gap: 8px; padding: 3px 0; }
+#allowlist li span { min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+#log { max-height: 180px; overflow-y: auto; font: 11px/1.5 ui-monospace, monospace; }
+#log li { white-space: nowrap; overflow: hidden; text-overflow: ellipsis; color: var(--muted); }
+#log li b { color: var(--fg); font-weight: 600; }

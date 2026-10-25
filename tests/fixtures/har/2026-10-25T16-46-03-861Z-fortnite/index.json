@@ -1,0 +1,194 @@
+[
+  {
+    "file": "000-master.m3u8",
+    "kind": "master",
+    "at": "2026-10-25T16:46:05.612Z",
+    "status": 200,
+    "bytes": 13678,
+    "stitchedAd": false
+  },
+  {
+    "file": "001-media.m3u8",
+    "kind": "media",
+    "at": "2026-10-25T16:46:05.687Z",
+    "status": 200,
+    "bytes": 19592,
+    "stitchedAd": true
+  },
+  {
+    "file": "002-media.m3u8",
+    "kind": "media",
+    "at": "2026-10-25T16:46:06.608Z",
+    "status": 200,
+    "bytes": 19592,
+    "stitchedAd": true
+  },
+  {
+    "file": "003-media.m3u8",
+    "kind": "media",
+    "at": "2026-10-25T16:46:06.965Z",
+    "status": 200,
+    "bytes": 19697,
+    "stitchedAd": true
+  },
+  {
+    "file": "004-media.m3u8",
+    "kind": "media",
+    "at": "2026-10-25T16:46:08.067Z",
+    "status": 200,
+    "bytes": 20827,
+    "stitchedAd": true
+  },
+  {
+    "file": "005-media.m3u8",
+    "kind": "media",
+    "at": "2026-10-25T16:46:09.309Z",
+    "status": 200,
+    "bytes": 21743,
+    "stitchedAd": true
+  },
+  {
+    "file": "006-media.m3u8",
+    "kind": "media",
+    "at": "2026-10-25T16:46:11.309Z",
+    "status": 200,
+    "bytes": 22869,
+    "stitchedAd": true
+  },
+  {
+    "file": "007-media.m3u8",
+    "kind": "media",
+    "at": "2026-10-25T16:46:13.304Z",
+    "status": 200,
+    "bytes": 23785,
+    "stitchedAd": true
+  },
+  {
+    "file": "008-media.m3u8",
+    "kind": "media",
+    "at": "2026-10-25T16:46:15.297Z",
+    "status": 200,
+    "bytes": 24919,
+    "stitchedAd": true
+  },
+  {
+    "file": "009-media.m3u8",
+    "kind": "media",
+    "at": "2026-10-25T16:46:21.022Z",
+    "status": 200,
+    "bytes": 41072,
+    "stitchedAd": true
+  },
+  {
+    "file": "010-media.m3u8",
+    "kind": "media",
+    "at": "2026-10-25T16:46:21.979Z",
+    "status": 200,
+    "bytes": 41988,
+    "stitchedAd": true
+  },
+  {
+    "file": "011-media.m3u8",
+    "kind": "media",
+    "at": "2026-10-25T16:46:30.906Z",
+    "status": 200,
+    "bytes": 45862,
+    "stitchedAd": true
+  },
+  {
+    "file": "012-media.m3u8",
+    "kind": "media",
+    "at": "2026-10-25T16:46:33.081Z",
+    "status": 200,
+    "bytes": 47908,
+    "stitchedAd": true
+  },
+  {
+    "file": "013-media.m3u8",
+    "kind": "media",
+    "at": "2026-10-25T16:46:37.154Z",
+    "status": 200,
+    "bytes": 49740,
+    "stitchedAd": true
+  },
+  {
+    "file": "014-media.m3u8",
+    "kind": "media",
+    "at": "2026-10-25T16:46:41.065Z",
+    "status": 200,
+    "bytes": 51782,
+    "stitchedAd": true
+  },
+  {
+    "file": "015-media.m3u8",
+    "kind": "media",
+    "at": "2026-10-25T16:46:53.164Z",
+    "status": 200,
+    "bytes": 75336,
+    "stitchedAd": true
+  },
+  {
+    "file": "016-media.m3u8",
+    "kind": "media",
+    "at": "2026-10-25T16:46:55.066Z",
+    "status": 200,
+    "bytes": 76261,
+    "stitchedAd": true
+  },
+  {
+    "file": "017-media.m3u8",
+    "kind": "media",
+    "at": "2026-10-25T16:47:03.139Z",
+    "status": 200,
+    "bytes": 79463,
+    "stitchedAd": true
+  },
+  {
+    "file": "018-media.m3u8",
+    "kind": "media",
+    "at": "2026-10-25T16:47:05.182Z",
+    "status": 200,
+    "bytes": 80615,
+    "stitchedAd": true
+  },
+  {
+    "file": "019-media.m3u8",
+    "kind": "media",
+    "at": "2026-10-25T16:47:06.183Z",
+    "status": 200,
+    "bytes": 80615,
+    "stitchedAd": true
+  },
+  {
+    "file": "020-media.m3u8",
+    "kind": "media",
+    "at": "2026-10-25T16:47:10.600Z",
+    "status": 200,
+    "bytes": 82501,
+    "stitchedAd": true
+  },
+  {
+    "file": "021-media.m3u8",
+    "kind": "media",
+    "at": "2026-10-25T16:47:12.760Z",
+    "status": 200,
+    "bytes": 83444,
+    "stitchedAd": true
+  },
+  {
+    "file": "022-media.m3u8",
+    "kind": "media",
+    "at": "2026-10-25T16:47:13.689Z",
+    "status": 200,
+    "bytes": 84387,
+    "stitchedAd": true
+  },
+  {
+    "file": "023-media.m3u8",
+    "kind": "media",
+    "at": "2026-10-25T16:47:19.150Z",
+    "status": 200,
+    "bytes": 87216,
+    "stitchedAd": true
+  }
+]

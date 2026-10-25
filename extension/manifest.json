@@ -1,0 +1,57 @@
+{
+  "manifest_version": 3,
+  "name": "StreamShield",
+  "version": "0.1.0",
+  "description": "Blocks Twitch video ads.",
+  "minimum_chrome_version": "111",
+  "permissions": [
+    "storage",
+    "declarativeNetRequest"
+  ],
+  "host_permissions": [
+    "https://*.twitch.tv/*"
+  ],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "content_scripts": [
+    {
+      "matches": [
+        "https://www.twitch.tv/*",
+        "https://m.twitch.tv/*",
+        "https://player.twitch.tv/*"
+      ],
+      "js": [
+        "content/twitch-main.js"
+      ],
+      "run_at": "document_start",
+      "world": "MAIN",
+      "all_frames": true
+    },
+    {
+      "matches": [
+        "https://www.twitch.tv/*",
+        "https://m.twitch.tv/*",
+        "https://player.twitch.tv/*"
+      ],
+      "js": [
+        "content/bridge.js"
+      ],
+      "run_at": "document_start",
+      "all_frames": true
+    }
+  ],
+  "action": {
+    "default_popup": "popup/popup.html",
+    "default_title": "StreamShield"
+  },
+  "declarative_net_request": {
+    "rule_resources": [
+      {
+        "id": "trackers",
+        "enabled": true,
+        "path": "rules/trackers.json"
+      }
+    ]
+  }
+}

@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>StreamShield</title>
+  <link rel="stylesheet" href="popup.css">
+</head>
+<body>
+  <header>
+    <h1>StreamShield</h1>
+    <label class="switch" title="Block ads on Twitch">
+      <input type="checkbox" id="enabled">
+      <span>Enabled</span>
+    </label>
+  </header>
+
+  <section id="channel-section">
+    <div class="row">
+      <span id="channel-name">Not on a Twitch channel</span>
+      <button id="allow-toggle" hidden></button>
+    </div>
+    <dl class="stats">
+      <div><dt>Ad breaks blocked</dt><dd id="stat-ads">0</dd></div>
+      <div><dt>Swapped</dt><dd id="stat-swapped">0</dd></div>
+      <div><dt>Stripped</dt><dd id="stat-stripped">0</dd></div>
+    </dl>
+    <p class="hint">Counts are for this tab. "Stripped" breaks pause video for the ad's length.</p>
+    <p class="hint">Turning blocking off or allowing a channel takes full effect when you reload the stream.</p>
+  </section>
+
+  <section>
+    <h2>Allowlist <small>(ads shown)</small></h2>
+    <ul id="allowlist"></ul>
+    <p id="allowlist-empty" class="hint">No channels.</p>
+  </section>
+
+  <section>
+    <div class="row">
+      <h2>Debug log</h2>
+      <button id="copy-log">Copy log</button>
+    </div>
+    <ol id="log"></ol>
+  </section>
+
+  <script src="popup.js" type="module"></script>
+</body>
+</html>

@@ -1,0 +1,218 @@
+[
+  {
+    "file": "000-master.m3u8",
+    "kind": "master",
+    "at": "2026-10-25T16:46:06.212Z",
+    "status": 200,
+    "bytes": 12050,
+    "stitchedAd": false
+  },
+  {
+    "file": "001-media.m3u8",
+    "kind": "media",
+    "at": "2026-10-25T16:46:06.287Z",
+    "status": 200,
+    "bytes": 20007,
+    "stitchedAd": true
+  },
+  {
+    "file": "002-media.m3u8",
+    "kind": "media",
+    "at": "2026-10-25T16:46:07.254Z",
+    "status": 200,
+    "bytes": 21116,
+    "stitchedAd": true
+  },
+  {
+    "file": "003-media.m3u8",
+    "kind": "media",
+    "at": "2026-10-25T16:46:07.689Z",
+    "status": 200,
+    "bytes": 21127,
+    "stitchedAd": true
+  },
+  {
+    "file": "004-media.m3u8",
+    "kind": "media",
+    "at": "2026-10-25T16:46:08.794Z",
+    "status": 200,
+    "bytes": 36512,
+    "stitchedAd": true
+  },
+  {
+    "file": "005-media.m3u8",
+    "kind": "media",
+    "at": "2026-10-25T16:46:09.793Z",
+    "status": 200,
+    "bytes": 36512,
+    "stitchedAd": true
+  },
+  {
+    "file": "006-media.m3u8",
+    "kind": "media",
+    "at": "2026-10-25T16:46:10.736Z",
+    "status": 200,
+    "bytes": 38312,
+    "stitchedAd": true
+  },
+  {
+    "file": "007-media.m3u8",
+    "kind": "media",
+    "at": "2026-10-25T16:46:12.680Z",
+    "status": 200,
+    "bytes": 39421,
+    "stitchedAd": true
+  },
+  {
+    "file": "008-media.m3u8",
+    "kind": "media",
+    "at": "2026-10-25T16:46:13.700Z",
+    "status": 200,
+    "bytes": 39421,
+    "stitchedAd": true
+  },
+  {
+    "file": "009-media.m3u8",
+    "kind": "media",
+    "at": "2026-10-25T16:46:14.605Z",
+    "status": 200,
+    "bytes": 39421,
+    "stitchedAd": true
+  },
+  {
+    "file": "010-media.m3u8",
+    "kind": "media",
+    "at": "2026-10-25T16:46:16.580Z",
+    "status": 200,
+    "bytes": 40321,
+    "stitchedAd": true
+  },
+  {
+    "file": "011-media.m3u8",
+    "kind": "media",
+    "at": "2026-10-25T16:46:17.579Z",
+    "status": 200,
+    "bytes": 41221,
+    "stitchedAd": true
+  },
+  {
+    "file": "012-media.m3u8",
+    "kind": "media",
+    "at": "2026-10-25T16:46:19.696Z",
+    "status": 200,
+    "bytes": 42121,
+    "stitchedAd": true
+  },
+  {
+    "file": "013-media.m3u8",
+    "kind": "media",
+    "at": "2026-10-25T16:46:20.779Z",
+    "status": 200,
+    "bytes": 43234,
+    "stitchedAd": true
+  },
+  {
+    "file": "014-media.m3u8",
+    "kind": "media",
+    "at": "2026-10-25T16:46:22.630Z",
+    "status": 200,
+    "bytes": 43234,
+    "stitchedAd": true
+  },
+  {
+    "file": "015-media.m3u8",
+    "kind": "media",
+    "at": "2026-10-25T16:46:24.658Z",
+    "status": 200,
+    "bytes": 45034,
+    "stitchedAd": true
+  },
+  {
+    "file": "016-media.m3u8",
+    "kind": "media",
+    "at": "2026-10-25T16:46:27.544Z",
+    "status": 200,
+    "bytes": 45934,
+    "stitchedAd": true
+  },
+  {
+    "file": "017-media.m3u8",
+    "kind": "media",
+    "at": "2026-10-25T16:46:35.537Z",
+    "status": 200,
+    "bytes": 49743,
+    "stitchedAd": true
+  },
+  {
+    "file": "018-media.m3u8",
+    "kind": "media",
+    "at": "2026-10-25T16:46:46.711Z",
+    "status": 200,
+    "bytes": 70941,
+    "stitchedAd": true
+  },
+  {
+    "file": "019-media.m3u8",
+    "kind": "media",
+    "at": "2026-10-25T16:46:55.578Z",
+    "status": 200,
+    "bytes": 75657,
+    "stitchedAd": true
+  },
+  {
+    "file": "020-media.m3u8",
+    "kind": "media",
+    "at": "2026-10-25T16:47:00.692Z",
+    "status": 200,
+    "bytes": 78297,
+    "stitchedAd": true
+  },
+  {
+    "file": "021-media.m3u8",
+    "kind": "media",
+    "at": "2026-10-25T16:47:02.554Z",
+    "status": 200,
+    "bytes": 78297,
+    "stitchedAd": true
+  },
+  {
+    "file": "022-media.m3u8",
+    "kind": "media",
+    "at": "2026-10-25T16:47:04.578Z",
+    "status": 200,
+    "bytes": 79177,
+    "stitchedAd": true
+  },
+  {
+    "file": "023-media.m3u8",
+    "kind": "media",
+    "at": "2026-10-25T16:47:05.668Z",
+    "status": 200,
+    "bytes": 80057,
+    "stitchedAd": true
+  },
+  {
+    "file": "024-media.m3u8",
+    "kind": "media",
+    "at": "2026-10-25T16:47:08.659Z",
+    "status": 200,
+    "bytes": 80937,
+    "stitchedAd": true
+  },
+  {
+    "file": "025-media.m3u8",
+    "kind": "media",
+    "at": "2026-10-25T16:47:09.736Z",
+    "status": 200,
+    "bytes": 81817,
+    "stitchedAd": true
+  },
+  {
+    "file": "026-media.m3u8",
+    "kind": "media",
+    "at": "2026-10-25T16:47:16.811Z",
+    "status": 200,
+    "bytes": 85337,
+    "stitchedAd": true
+  }
+]

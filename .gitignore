@@ -1,0 +1,7 @@
+node_modules/
+.profiles/
+*.har
+tests/fixtures/raw/
+e2e-results/
+extension/_metadata/
+.DS_Store

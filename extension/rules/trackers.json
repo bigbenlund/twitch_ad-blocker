@@ -1,0 +1,33 @@
+[
+  {
+    "id": 1,
+    "priority": 1,
+    "action": {
+      "type": "block"
+    },
+    "condition": {
+      "requestDomains": [
+        "amazon-adsystem.com"
+      ],
+      "initiatorDomains": [
+        "twitch.tv"
+      ]
+    }
+  },
+  {
+    "id": 2,
+    "priority": 1,
+    "action": {
+      "type": "block"
+    },
+    "condition": {
+      "requestDomains": [
+        "scorecardresearch.com",
+        "imrworldwide.com"
+      ],
+      "initiatorDomains": [
+        "twitch.tv"
+      ]
+    }
+  }
+]

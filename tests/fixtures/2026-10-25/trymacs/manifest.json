@@ -1,0 +1,411 @@
+{
+  "capturedAt": "2026-10-25",
+  "note": "rebuilt from files; per-file timestamps lost",
+  "sessions": [
+    {
+      "playerType": "autoplay",
+      "files": [
+        {
+          "name": "media-000.m3u8",
+          "adHint": true
+        },
+        {
+          "name": "media-001.m3u8",
+          "adHint": true
+        },
+        {
+          "name": "media-002.m3u8",
+          "adHint": true
+        },
+        {
+          "name": "media-003.m3u8",
+          "adHint": true
+        },
+        {
+          "name": "media-004.m3u8",
+          "adHint": true
+        },
+        {
+          "name": "media-005.m3u8",
+          "adHint": true
+        },
+        {
+          "name": "media-006.m3u8",
+          "adHint": true
+        },
+        {
+          "name": "media-007.m3u8",
+          "adHint": true
+        },
+        {
+          "name": "media-008.m3u8",
+          "adHint": true
+        },
+        {
+          "name": "media-009.m3u8",
+          "adHint": true
+        },
+        {
+          "name": "media-010.m3u8",
+          "adHint": true
+        },
+        {
+          "name": "media-011.m3u8",
+          "adHint": true
+        },
+        {
+          "name": "media-012.m3u8",
+          "adHint": true
+        },
+        {
+          "name": "media-013.m3u8",
+          "adHint": true
+        },
+        {
+          "name": "media-014.m3u8",
+          "adHint": true
+        },
+        {
+          "name": "media-015.m3u8",
+          "adHint": true
+        },
+        {
+          "name": "media-016.m3u8",
+          "adHint": true
+        },
+        {
+          "name": "media-017.m3u8",
+          "adHint": true
+        },
+        {
+          "name": "media-018.m3u8",
+          "adHint": true
+        }
+      ]
+    },
+    {
+      "playerType": "embed",
+      "files": [
+        {
+          "name": "media-000.m3u8",
+          "adHint": false
+        },
+        {
+          "name": "media-001.m3u8",
+          "adHint": false
+        },
+        {
+          "name": "media-002.m3u8",
+          "adHint": false
+        },
+        {
+          "name": "media-003.m3u8",
+          "adHint": false
+        },
+        {
+          "name": "media-004.m3u8",
+          "adHint": false
+        },
+        {
+          "name": "media-005.m3u8",
+          "adHint": false
+        },
+        {
+          "name": "media-006.m3u8",
+          "adHint": false
+        },
+        {
+          "name": "media-007.m3u8",
+          "adHint": false
+        },
+        {
+          "name": "media-008.m3u8",
+          "adHint": false
+        },
+        {
+          "name": "media-009.m3u8",
+          "adHint": false
+        },
+        {
+          "name": "media-010.m3u8",
+          "adHint": false
+        },
+        {
+          "name": "media-011.m3u8",
+          "adHint": false
+        },
+        {
+          "name": "media-012.m3u8",
+          "adHint": false
+        },
+        {
+          "name": "media-013.m3u8",
+          "adHint": false
+        },
+        {
+          "name": "media-014.m3u8",
+          "adHint": false
+        },
+        {
+          "name": "media-015.m3u8",
+          "adHint": false
+        },
+        {
+          "name": "media-016.m3u8",
+          "adHint": false
+        },
+        {
+          "name": "media-017.m3u8",
+          "adHint": false
+        },
+        {
+          "name": "media-018.m3u8",
+          "adHint": false
+        }
+      ]
+    },
+    {
+      "playerType": "picture-by-picture",
+      "files": [
+        {
+          "name": "media-000.m3u8",
+          "adHint": true
+        },
+        {
+          "name": "media-001.m3u8",
+          "adHint": true
+        },
+        {
+          "name": "media-002.m3u8",
+          "adHint": true
+        },
+        {
+          "name": "media-003.m3u8",
+          "adHint": true
+        },
+        {
+          "name": "media-004.m3u8",
+          "adHint": true
+        },
+        {
+          "name": "media-005.m3u8",
+          "adHint": true
+        },
+        {
+          "name": "media-006.m3u8",
+          "adHint": true
+        },
+        {
+          "name": "media-007.m3u8",
+          "adHint": true
+        },
+        {
+          "name": "media-008.m3u8",
+          "adHint": true
+        },
+        {
+          "name": "media-009.m3u8",
+          "adHint": true
+        },
+        {
+          "name": "media-010.m3u8",
+          "adHint": true
+        },
+        {
+          "name": "media-011.m3u8",
+          "adHint": true
+        },
+        {
+          "name": "media-012.m3u8",
+          "adHint": true
+        },
+        {
+          "name": "media-013.m3u8",
+          "adHint": true
+        },
+        {
+          "name": "media-014.m3u8",
+          "adHint": true
+        },
+        {
+          "name": "media-015.m3u8",
+          "adHint": true
+        },
+        {
+          "name": "media-016.m3u8",
+          "adHint": true
+        },
+        {
+          "name": "media-017.m3u8",
+          "adHint": true
+        },
+        {
+          "name": "media-018.m3u8",
+          "adHint": true
+        }
+      ]
+    },
+    {
+      "playerType": "popout",
+      "files": [
+        {
+          "name": "media-000.m3u8",
+          "adHint": true
+        },
+        {
+          "name": "media-001.m3u8",
+          "adHint": true
+        },
+        {
+          "name": "media-002.m3u8",
+          "adHint": true
+        },
+        {
+          "name": "media-003.m3u8",
+          "adHint": true
+        },
+        {
+          "name": "media-004.m3u8",
+          "adHint": true
+        },
+        {
+          "name": "media-005.m3u8",
+          "adHint": true
+        },
+        {
+          "name": "media-006.m3u8",
+          "adHint": true
+        },
+        {
+          "name": "media-007.m3u8",
+          "adHint": true
+        },
+        {
+          "name": "media-008.m3u8",
+          "adHint": true
+        },
+        {
+          "name": "media-009.m3u8",
+          "adHint": true
+        },
+        {
+          "name": "media-010.m3u8",
+          "adHint": true
+        },
+        {
+          "name": "media-011.m3u8",
+          "adHint": true
+        },
+        {
+          "name": "media-012.m3u8",
+          "adHint": true
+        },
+        {
+          "name": "media-013.m3u8",
+          "adHint": true
+        },
+        {
+          "name": "media-014.m3u8",
+          "adHint": true
+        },
+        {
+          "name": "media-015.m3u8",
+          "adHint": true
+        },
+        {
+          "name": "media-016.m3u8",
+          "adHint": true
+        },
+        {
+          "name": "media-017.m3u8",
+          "adHint": true
+        },
+        {
+          "name": "media-018.m3u8",
+          "adHint": true
+        }
+      ]
+    },
+    {
+      "playerType": "site",
+      "files": [
+        {
+          "name": "media-000.m3u8",
+          "adHint": true
+        },
+        {
+          "name": "media-001.m3u8",
+          "adHint": true
+        },
+        {
+          "name": "media-002.m3u8",
+          "adHint": true
+        },
+        {
+          "name": "media-003.m3u8",
+          "adHint": true
+        },
+        {
+          "name": "media-004.m3u8",
+          "adHint": true
+        },
+        {
+          "name": "media-005.m3u8",
+          "adHint": true
+        },
+        {
+          "name": "media-006.m3u8",
+          "adHint": true
+        },
+        {
+          "name": "media-007.m3u8",
+          "adHint": true
+        },
+        {
+          "name": "media-008.m3u8",
+          "adHint": true
+        },
+        {
+          "name": "media-009.m3u8",
+          "adHint": true
+        },
+        {
+          "name": "media-010.m3u8",
+          "adHint": true
+        },
+        {
+          "name": "media-011.m3u8",
+          "adHint": true
+        },
+        {
+          "name": "media-012.m3u8",
+          "adHint": true
+        },
+        {
+          "name": "media-013.m3u8",
+          "adHint": true
+        },
+        {
+          "name": "media-014.m3u8",
+          "adHint": true
+        },
+        {
+          "name": "media-015.m3u8",
+          "adHint": true
+        },
+        {
+          "name": "media-016.m3u8",
+          "adHint": true
+        },
+        {
+          "name": "media-017.m3u8",
+          "adHint": true
+        },
+        {
+          "name": "media-018.m3u8",
+          "adHint": true
+        }
+      ]
+    }
+  ]
+}

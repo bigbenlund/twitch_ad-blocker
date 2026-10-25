@@ -1,0 +1,4 @@
+{
+  "comment": "Alternate playerType values tried, in order, when the main playlist has ads. 2026-10-25: only embed returned ad-free playlists while site/popout/autoplay/picture-by-picture had ads.",
+  "playerTypes": ["embed", "popout", "autoplay", "picture-by-picture"]
+}
