@@ -36,7 +36,8 @@ Twitch stitches ads into the video stream on its servers, so ordinary ad blocker
 2. The worker hook inspects every playlist. Ads are marked with `CLASS="twitch-stitched-ad"` and segment titles other than `live` (see `src/lib/m3u8.js`).
 3. On an ad, it requests a new access token with a different player type (`extension/data/player-types.json`). If that stream is ad-free, the player gets it instead, and stays on it until the stream reloads.
 4. If every alternate has ads, the ad segments are removed (`createAdStripper`) and the video pauses for the ad's length.
-5. `extension/rules/trackers.json` blocks third-party ad and measurement hosts (see `extension/rules/README.md`).
+5. Mid-roll "picture-by-picture" ads (the stream shrinks beside an ad box) are blocked two ways: the worker hook removes the `pbyp-preflight` tag that triggers the layout from the video playlist, and the page hook answers Twitch's own ad request (`FetchAdsService_FetchAds`) with "no ad available" (`src/lib/gql.js`). These show up in the debug log as `pbyp-blocked` and `client-ad-blocked`.
+6. `extension/rules/trackers.json` blocks third-party ad and measurement hosts (see `extension/rules/README.md`).
 
 ## When ads come back
 
@@ -63,6 +64,8 @@ Pick a channel currently serving ads to logged-out viewers (big channels usually
 | `swappedTo` | e.g. `["embed"]` | Alternate player types now get ads too → edit `extension/data/player-types.json` (run `npm run capture` and look for a player type with 0 ad hints) |
 | `events.alt-error` | absent | Token or usher request failing → `src/lib/token.js` (Client-ID or query changed) |
 | `adUiSeconds` | `0` | An ad got through: look at the debug log in `e2e-results/*.json` |
+
+If an ad appears in a box beside the stream (picture-by-picture) and the debug log has no `client-ad-blocked` entry, Twitch probably renamed the GraphQL operation: search Twitch's page scripts for `fetchAds` and update `CLIENT_AD_OPERATIONS` in `src/lib/gql.js`.
 | `stallSeconds` | `0` (swap) or about the ad length (strip) | Long stalls after an ad → sequence numbering (`createAdStripper`) or the sticky-alternate logic in `src/worker-hook.js` |
 | `played`, `height` | close to the run length; 720 at the test window size | Video not advancing → see `stallSeconds` and the log |
 | `errors` | 0–2 | Page errors. `getLayoutMap()…` and `Failed to fetch` are Twitch's own (they appear with `--no-extension` too); anything else, compare against a `--no-extension` run |

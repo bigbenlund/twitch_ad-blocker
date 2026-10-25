@@ -6,6 +6,8 @@
 // any page script runs: page code may later patch globals and prototypes to observe or forge our
 // messages. (A determined page can still detect this script; it can't read the key or the port.)
 (() => {
+  /* PAGE_LIBS */
+
   const apply = Reflect.apply;
   const construct = Reflect.construct;
   const stringify = JSON.stringify;
@@ -27,6 +29,10 @@
   const randomUUID = crypto.randomUUID.bind(crypto);
   const NativeURL = URL;
   const NativeWeakRef = WeakRef;
+  const NativeResponse = Response;
+  const responseText = Response.prototype.text;
+  const parseJSON = JSON.parse;
+  const nativeFetch = window.fetch;
 
   // Private channel to bridge.js. Posted before any page script runs, so only the bridge sees it.
   const channel = new MessageChannel();
@@ -40,6 +46,7 @@
   const HOOK_SRC = `${WORKER_HOOK_SRC}\n;\n`;
 
   let settings = null;
+  let currentChannel = null; // from the player's usher request (worker 'usher' events)
   const workers = new Set(); // WeakRefs; Twitch creates new workers on SPA navigation
   const emit = (type, data = {}) => apply(portPost, port, [{ type: 'event', event: { type, ...data } }]);
   const sendSettings = (w) => settings && apply(workerPost, w, [{ [NS]: 'settings', key: KEY, settings }]);
@@ -98,6 +105,7 @@
         // Synthetic events (dispatchEvent from page scripts) are untrusted; isTrusted is an unforgeable
         // own property. Real worker messages also carry the key.
         if (!e.isTrusted || data.key !== KEY) return;
+        if (data.event.type === 'usher') currentChannel = data.event.channel;
         emit(data.event.type, data.event);
       }]);
       workers.add(new NativeWeakRef(worker));
@@ -107,16 +115,45 @@
     },
   });
   Object.defineProperty(NativeWorker.prototype, 'constructor', { value: WorkerProxy, writable: true, configurable: true, enumerable: false });
+  window.Worker = WorkerProxy;
+
+  // Wrapped natives print as the originals (Function.prototype.toString).
+  const masked = new Map([[WorkerProxy, NativeWorker]]);
   const nativeToString = Function.prototype.toString;
   const toStringProxy = new Proxy(nativeToString, {
     apply(target, self, args) {
-      if (self === WorkerProxy) return apply(target, NativeWorker, args);
       if (self === toStringProxy) return apply(target, nativeToString, args);
-      return apply(target, self, args);
+      return apply(target, masked.get(self) ?? self, args);
     },
   });
   Function.prototype.toString = toStringProxy;
-  window.Worker = WorkerProxy;
+
+  // Client-side ads (e.g. the picture-by-picture ad beside the stream) come from a GraphQL request the
+  // page makes itself. Let it through, then answer "no ad available" (see src/lib/gql.js).
+  const blockingHere = () => (settings?.enabled ?? true) && !(settings?.allowlist ?? []).includes(currentChannel);
+  const fetchProxy = new Proxy(nativeFetch, {
+    apply(target, self, args) {
+      const [input, init] = args;
+      const href = typeof input === 'string' ? input : input instanceof NativeURL ? input.href : '';
+      if (!apply(startsWith, href, ['https://gql.twitch.tv/']) || !isClientAdRequest(init?.body) || !blockingHere()) {
+        return apply(target, self, args);
+      }
+      return apply(target, self, args).then(async (res) => {
+        try {
+          const json = apply(parseJSON, JSON, [await apply(responseText, res.clone(), [])]);
+          const removed = removeClientAds(init.body, json);
+          if (!removed.length) return res;
+          emit('client-ad-blocked', { formats: removed.join(','), channel: currentChannel });
+          return construct(NativeResponse, [apply(stringify, JSON, [json]), { status: res.status, statusText: res.statusText, headers: res.headers }]);
+        } catch {
+          return res;
+        }
+      });
+    },
+  });
+
+  masked.set(fetchProxy, nativeFetch);
+  window.fetch = fetchProxy;
 
   emit('hook-installed', { frame: location.hostname + location.pathname });
 })();
