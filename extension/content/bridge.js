@@ -3,10 +3,34 @@
 (() => {
   let port = null;
 
+  // After the extension is reloaded or updated, this script keeps running in already-open tabs but
+  // its chrome.* APIs are gone ("Extension context invalidated"), and sendMessage throws
+  // synchronously. Detach quietly; the page and worker hooks keep blocking with their last settings
+  // until the tab is refreshed.
+  const contextValid = () => {
+    try {
+      return !!chrome.runtime?.id;
+    } catch {
+      return false;
+    }
+  };
+  const detach = () => {
+    if (port) port.onmessage = null;
+    port = null;
+  };
+  const send = async (msg) => {
+    if (!contextValid()) return detach();
+    try {
+      return await chrome.runtime.sendMessage(msg);
+    } catch {
+      if (!contextValid()) detach();
+    }
+  };
+
   const pushSettings = async () => {
     if (!port) return;
-    const settings = await chrome.runtime.sendMessage({ type: 'get-settings' });
-    if (settings) port.postMessage({ type: 'settings', settings });
+    const settings = await send({ type: 'get-settings' });
+    if (settings) port?.postMessage({ type: 'settings', settings });
   };
 
   // The MAIN-world script posts its port before any page script has run; accept only the first.
@@ -16,7 +40,7 @@
     e.stopImmediatePropagation();
     port = e.ports[0];
     port.onmessage = ({ data }) => {
-      if (data?.type === 'event') chrome.runtime.sendMessage({ type: 'event', event: data.event }).catch(() => {});
+      if (data?.type === 'event') send({ type: 'event', event: data.event });
     };
     pushSettings();
   };
