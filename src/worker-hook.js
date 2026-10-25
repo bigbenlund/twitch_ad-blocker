@@ -21,6 +21,7 @@ const ss = {
   blocking: false, // currently swapping/stripping a break (for once-per-break counting)
   goodType: null, // playerType that last returned a clean stream (tried first next break)
   altSearch: null, // pending findAltStream, awaited by concurrent refreshes
+  pbyp: false, // a picture-by-picture preflight tag is currently being removed (log once per break)
 };
 
 // Registered before the player's listeners; our messages never reach the player.
@@ -110,6 +111,15 @@ async function altPlaylist(url) {
   return isStitchedAdPlaylist(media) ? { text: await paced(stripperFor(altUrl)(media)), altAd: true, info: getAdInfo(media) } : { text: media, altAd: false };
 }
 
+// Every playlist served while blocking goes through here: drops the picture-by-picture trigger.
+function clean(text) {
+  const out = removePbypPreflight(text);
+  const found = out !== text;
+  if (found && !ss.pbyp) ssEmit('pbyp-blocked', {});
+  ss.pbyp = found;
+  return out;
+}
+
 // Counts one event per break; later refreshes of the same break are logged only when verbose.
 function report(type, blocking, settings, data = {}) {
   const firstInBreak = blocking && !ss.blocking;
@@ -174,7 +184,7 @@ self.fetch = async function (input, init) {
         const { text: served, altAd, info } = await altPlaylist(url);
         if (altAd) report('stripped', true, settings, { source: ss.alt.playerType, ...info });
         else report('swapped', ad, settings, { playerType: ss.alt.playerType, variant: ss.variants.get(url)?.name ?? null });
-        return textResponse(served, res);
+        return textResponse(clean(served), res);
       } catch (e) {
         ssEmit('alt-lost', { playerType: ss.alt.playerType, error: String(e?.message ?? e) });
         ss.alt = null;
@@ -182,7 +192,9 @@ self.fetch = async function (input, init) {
     }
     report('stripped', ad, settings, ad ? getAdInfo(text) : {});
     // Keep the stripper's numbering continuous once ads have been removed from this playlist.
-    return ad || ss.strippers.has(url) ? textResponse(await paced(stripperFor(url)(text)), res) : res;
+    if (ad || ss.strippers.has(url)) return textResponse(clean(await paced(stripperFor(url)(text))), res);
+    const cleaned = clean(text);
+    return cleaned === text ? res : textResponse(cleaned, res);
   } catch (e) {
     ssEmit('error', { where: 'fetch', error: String(e?.message ?? e) });
     return res;

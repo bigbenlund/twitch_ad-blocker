@@ -102,5 +102,16 @@ export function createAdStripper() {
   };
 }
 
+// Twitch's player switches to a "picture-by-picture" ad layout (the stream shrunk beside an ad) when
+// it sees this DATERANGE, which arrives shortly before a break, while the playlist is still ad-free.
+// Condition taken from the player's metadata handler (2026-10-25).
+const isPbypPreflight = (line) =>
+  line.startsWith('#EXT-X-DATERANGE') && daterangeClass(line) === 'live-video-net-metadata' && /X-NET-LIVE-VIDEO-METADATA-TYPE="pbyp-preflight"/i.test(line);
+
+export function removePbypPreflight(text) {
+  if (!String(text ?? '').includes('pbyp-preflight')) return text;
+  return lines(text).filter((l) => !isPbypPreflight(l)).join('\n');
+}
+
 // Stateless convenience for a single playlist.
 export const stripAdSegments = (text) => createAdStripper()(text);

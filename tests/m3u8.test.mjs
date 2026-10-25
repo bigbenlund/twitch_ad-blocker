@@ -1,6 +1,6 @@
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
-import { parsePlaylist, isStitchedAdPlaylist, getAdInfo, stripAdSegments, createAdStripper } from '../src/lib/m3u8.js';
+import { parsePlaylist, isStitchedAdPlaylist, getAdInfo, stripAdSegments, createAdStripper, removePbypPreflight } from '../src/lib/m3u8.js';
 import { sessions } from './fixtures.js';
 
 const all = sessions();
@@ -152,4 +152,21 @@ test('regressions from step 3 review', () => {
   strip(syntheticWindow(100, ['live', 'ad', 'ad', 'live']));
   const after = strip(syntheticWindow(5, ['live', 'live']));
   assert.match(after, /#EXT-X-MEDIA-SEQUENCE:5\n/);
+});
+
+test('removePbypPreflight drops only the picture-by-picture trigger', () => {
+  const preflight = '#EXT-X-DATERANGE:ID="pbyp-1",CLASS="live-video-net-metadata",START-DATE="2026-10-25T16:46:00.081Z",X-NET-LIVE-VIDEO-METADATA-TYPE="pbyp-preflight",X-NET-LIVE-VIDEO-METADATA-PBYP-COMMERCIAL-ID="abc",X-NET-LIVE-VIDEO-METADATA-PBYP-WARMUP-TIME="10"';
+  const otherMeta = '#EXT-X-DATERANGE:ID="m-1",CLASS="live-video-net-metadata",START-DATE="2026-10-25T16:46:00.081Z",X-NET-LIVE-VIDEO-METADATA-TYPE="something-else"';
+  const base = syntheticWindow(0, ['live', 'live']);
+  const withTags = base.replace('#EXTINF', `${preflight}\n${otherMeta}\n#EXTINF`);
+  const out = removePbypPreflight(withTags);
+  assert.ok(!out.includes('pbyp-preflight'));
+  assert.ok(out.includes(otherMeta));
+  assert.deepEqual(uris(out), uris(base));
+  // Attribute order doesn't matter
+  const reordered = '#EXT-X-DATERANGE:X-NET-LIVE-VIDEO-METADATA-TYPE="pbyp-preflight",ID="p",CLASS="live-video-net-metadata"';
+  assert.ok(!removePbypPreflight(`${base}\n${reordered}`).includes('pbyp-preflight'));
+  // Playlists without the tag are returned as-is (same string)
+  assert.equal(removePbypPreflight(base), base);
+  for (const p of playlists) assert.equal(removePbypPreflight(p.text), p.text, p.path);
 });
